@@ -1,0 +1,114 @@
+-------------------PARTE 1
+
+1) Endereço Ethernet de origem: c4:41:1e:75:b1:52
+
+2) Endereço Ethernet de destino: 00:1e:c1:7e:d9:01
+Esse não é o endereço Ethernet de gaia.cs.umass.edu,
+mas é o endereço Ethernet do meu roteador 3ComEuro, usado para sair
+da sub-rede local.
+
+3) O valor hexadecimal é 0x0800. Corresponde ao protocolo
+IP, que é a próxima camada na qual a carga do quadro ethernet
+irá ser passada.
+
+4)
+O caractere ASCII "G" aparece 66 bytes depois do início do quadro ethernet
+Quadro Ethernet : 14 bytes( End. de destino  + End. de origem + Tipo) 
+Cabeçalho IP : 20 bytes
+Cabeçalho TCP: 32 bytes
+
+5)
+Endereço Ethernet de origem: 00:1e:c1:7e:d9:01
+Esse não é o endereço Ethernet do meu computador ou de gaia.cs.umass.edu,
+mas é o endereço Ethernet do meu roteador 3ComEuro, usado para sair
+da sub-rede local.
+
+6)
+Endereço ethernet de destino: c4:41:1e:75:b1:52
+É o endereço do meu computador.
+
+7)
+Valor hexadecimal: 0x0800, corresponde ao protocolo IP.
+
+8)
+
+Quadro Ethernet : 14 bytes( End. de destino  + End. de origem + Tipo) 
+Cabeçalho IP : 20 bytes
+Cabeçalho TCP: 32 bytes
++ 13 bytes antes de chegar no ASCII "O".
+Total:  79 bytes
+Ou seja, são 66 bytes antes de chegar no código de resposta HTTP e exatamente
+79 bytes antes de chegar no ASCII "O" dentro do código de resposta HTTP contando
+a partir do início do quadro Ethernet
+
+
+9) 
+São 4 quadros ethernet no total transportando a mensagem de resposta HTTP "OK 200 ..."
+
+
+
+--------------------PARTE 2
+
+10)No meu cache ARP, há
+
+
+Interface: 192.168.56.1 --- 0x7
+  Endereço IP           Endereço físico       Tipo
+  192.168.56.255        ff-ff-ff-ff-ff-ff     estático
+  224.0.0.22            01-00-5e-00-00-16     estático
+  224.0.0.251           01-00-5e-00-00-fb     estático
+  224.0.0.252           01-00-5e-00-00-fc     estático
+  239.255.255.250       01-00-5e-7f-ff-fa     estático
+  255.255.255.255       ff-ff-ff-ff-ff-ff     estático
+
+Interface: 192.168.0.113 --- 0x9
+  Endereço IP           Endereço físico       Tipo
+  192.168.0.1           84-d8-1b-09-2e-eb     dinâmico
+  192.168.0.101         80-8f-e8-4b-6d-c0     dinâmico
+  192.168.0.110         44-d2-44-0d-a1-0d     dinâmico
+  192.168.0.255         ff-ff-ff-ff-ff-ff     estático
+  224.0.0.22            01-00-5e-00-00-16     estático
+  224.0.0.251           01-00-5e-00-00-fb     estático
+  224.0.0.252           01-00-5e-00-00-fc     estático
+  239.255.255.250       01-00-5e-7f-ff-fa     estático
+  255.255.255.255       ff-ff-ff-ff-ff-ff     estático
+
+
+
+11) Em cada entrada há o endereço IP, o endereço físico que indica
+o endereço MAC e o tipo que indica o tipo de protocolo.
+
+12) Valor hexadecimal do endereço de origem : c4:41:1e:75:b1:52
+
+13)Valor hexadecimal do endereço de destino : ff:ff:ff:ff:ff:ff 
+Esse é o endereço do broadcast, o que significa que a mensagem será
+transferida para todas as interfaces da subrede local simultaneamente.
+
+14) Valor hexadecimal do campo tipo : 0x0806, que é o do ARP.
+
+15)
+Há 20 bytes no total, 16 bytes do quadro ethernet mais 6 bytes
+de outros campos anteriores ao campo opcode do ARP
+
+16) 
+O valor do campo opcode na mensagem de solicitação é 0x0001, que indica
+uma request(requisição/solicitação).
+
+17) Sim, a mensagem de solicitação ARP contém o endereço do remetente,
+o valor é 128.119.247.66
+
+18) Endereço IP do destino é 128.119.247.1
+
+19)
+O valor do campo opcode na mensagem de resposta é 0x0002, que indica
+uma reply(resposta).
+
+20) O endereço ethernet é 00:1e:c1:7e:d9:01 com endereço IP 128.119.247.1 
+sendo uma resposta para a solicitação ARP anterior. 
+
+21) Não há respostas ARP no meu rastreamento em resposta a essas
+outras solitações, pois não estamos na interface/máquina que enviou as respectivas requisições.
+A solicitação ARP é enviada para todas as interfaces presentes na sub-rede local,
+mas a resposta ARP é enviada de volta diretamente ao remetente do endereço MAC presente na requisição.
+Então podemos ver apenas as respostas às minhas solicitações ARP, já que elas
+foram enviadas diretamente a mim.

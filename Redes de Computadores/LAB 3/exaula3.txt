@@ -1,0 +1,90 @@
+1) nslookup
+
+1. O endereço IP de www.iitb.ac.in é 103.21.124.10
+2. O endereço IP do servidor DNS que forneceu a resposta
+à pergunta 1 é 10.0.0.1(servidor DNS local)
+3. A resposta ao comando nslookup veio de um servidor sem autoridade.
+4. 
+iitb.ac.in      nameserver = dns2.iitb.ac.in
+iitb.ac.in      nameserver = dns1.iitb.ac.in
+iitb.ac.in      nameserver = dns3.iitb.ac.in
+O nome do primeiro servidor com autoridade retornado é dns2.iitb.ac.in
+Para encontrar o endereço IP desse servidor de nomes com autoridade, 
+teria que ser digitado um novo comando no prompt "nslookup iitb.ac.in dns2.iitb.ac.in".
+Dessa forma, seriam retornados o endereço ip desse servidor DNS em específico, além do endereço IP do domínio.
+Ao digitar o comando no prompt, o resultado foi que o endereço IP de dns2.iitb.ac.in é 103.21.126.129
+Servidor:  dns2.iitb.ac.in
+Address:  103.21.126.129
+
+
+128.119.245.12
+
+ip.addr == 10.0.0.128
+http://gaia.cs.umass.edu/kurose_ross/
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+3) Rastreando o DNS com o Wireshark
+
+
+5. O número do pacote no rastramento da mensagem de consulta DNS é 17.
+A mensagem de consulta é enviada via UDP(User Datagram Protocol).
+6. O número do pacote no rastramento da mensagem de resposta DNS é 19.
+A mensagem é recebida via UDP(User Datagram Protocol).
+7. A porta de destino para a mensagem de consulta é 53.
+A porta de origem da mensagem de resposta DNS é 53.
+8. A mensagem de consulta é enviada para o endereço IP 10.0.0.1.
+9. A mensagem de consulta DNS possui 1 "pergunta" e 0 "respostas".
+  Pergunta: gaia.cs.umass.edu: type A, class IN
+10. A mensagem de resposta DNS contém 1 "pergunta" e 1 "resposta".
+  Pergunta: gaia.cs.umass.edu: type A, class IN
+  Resposta: gaia.cs.umass.edu: type A, class IN, addr 128.119.245.12
+11. O número do pacote para a solicitação HTTP GET inicial é 40.
+Os números dos pacotes no rastreamento da consulta DNS feita para resolver gaia.cs.umass.edu para que essa
+solicitação HTTP INICIAL pudesse ser enviada para o endereço IP
+gaia.cs.umass.edu é 17.
+Os número dos pacotes no rastreamento da resposta DNS
+recebida é 19.
+O número do pacote no rastreamento da solicitação HTTP GET
+para o objeto de imagem "http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E_3.jpg" é 211. Já que
+não foi possível encontrar o objeto de imagem "http://gaia.cs.umass.edu/kurose_ross/header_graphic_book_8E_2.jpg" 4
+nas minhas buscas através do wireshark do dia 20/09/2022.
+O número do pacote na consulta DNS feita para resolver gaia.cs.umass.edu para que
+essa SEGUNDA solicitação HTTP pudesse ser enviada para o endereço IP
+gaia.cs.umass.edu é 17.
+Os número dos pacotes no rastreamento da resposta DNS a essa segunda solicitação
+recebida é 19.
+Os números dos pacotes de consulta e resposta DNS são os mesmos fornecidos antes, porque a imagem
+está referenciada no mesmo site que foi buscado em passos anteriores. Com isso, o navegador não precisa 
+procurar novamente no Servidor DNS local(gerando mais perguntas),
+pois a informação já está contida no cache DNS do computador (cache de resolvedor de
+DNS).
+
+-----------------------------------------------------------------------------------------
+
+12. A porta de destino para a mensagem de consulta DNS é 53.
+A porta de origem da mensagem de reposta DNS é 53.
+13. A mensagem de consulta DNS é enviada para o endereço IP 10.0.0.1 que corresponde ao
+IP do meu servidor DNS local padrão.
+14. É uma consulta do tipo standard query(question/pergunta). Não contém respostas.
+15. A mensagem de resposta DNS contém 1 "pergunta" e 1 "resposta"
+Pergunta: www.cs.umass.edu: type A, class IN
+Resposta: www.cs.umass.edu: type A, class IN, addr 128.119.240.84
+
+-------------------------------------------------------------------------------------------
+16. A mensagem de consulta DNS é enviada para o endereço IP 10.0.0.1 que corresponde ao
+IP do meu servidor DNS local padrão.
+17. A mensagem de consulta DNS contém 1 "pergunta" e 0 "respostas".
+Pergunta: umass.edu: type NS, class IN
+18. A resposta de mensagem do DNS contém 3 "respostas".
+As informações das respostas contém o nome dos servidores com autoridade sobre o domínio
+digitado.
+Resposta 1: umass.edu: type NS, class IN, ns ns1.umass.edu
+Resposta 2: umass.edu: type NS, class IN, ns ns2.umass.edu
+Resposta 3: umass.edu: type NS, class IN, ns ns3.umass.edu
+São retornados 3 registros de recursos adicionais.
+ ns2.umass.edu: type A, class IN, addr 128.119.10.28
+ ns1.umass.edu: type A, class IN, addr 128.119.10.27
+ ns3.umass.edu: type A, class IN, addr 128.103.38.68
+

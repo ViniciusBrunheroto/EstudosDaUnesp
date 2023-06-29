@@ -1,0 +1,62 @@
+1. Meu navegador está executando a versão HTTP 1.1. O servidor também está executando HTTP 1.1.
+
+2. Indica os idiomas "pt-BR"(português brasileiro), "en-US"(inglês americano) e "en" (inglês).
+
+3. O endereço IP do meu computador é 10.0.0.128
+O endereço IP do servidor é 128.119.245.12
+
+4. O código de status é 200 OK
+
+5. O arquivo HTML que está sendo recuperado foi modificado pela
+última vez no servidor no dia 12 de setembro de 2022 às 05:59:02 GMT.
+
+6. 128 bytes estão sendo devolvidos ao navegador.
+
+7. Sim, um dos cabeçalhos que aparecem em dados brutos na janela de conteúdo
+do pacote é "Server:".
+
+---------------------------------------------------------------------------------------------------
+
+8. Na primeira solicitação HTTP GET, a linha "IF-MODIFIED-SINCE" não aparece.
+9. Sim, pois o tamanho do arquivo aparece aumentado, 371 bytes contra 128 do anterior, 
+causado pelo aumento de palavras e linhas do arquivo. Além disso, toda a mensagem escrita
+no arquivo está aparecendo em detalhes do pacote selecionado(em Line-based text
+data), e também em conteúdo do pacote.
+10. Sim, agora a linha "IF-MODIFIED SINCE" está sendo visualizada no HTTP GET.
+As informações que seguem são "Mon, 12 Sep 2022 05:59:02 GMT"
+11. Código de status 304 com a frase retornada "Not Modified". 
+O servidor não devolveu expicitamente o conteúdo do arquivo, não há informações de tamanho
+do arquivo e também não aparece mais a mensagem escrita  no arquivo
+em detalhes e em conteúdo do pacote.
+
+--------------------------------------------------------------------------------------
+
+12. O meu navegador enviou 1 mensagem de solicitação HTTP, desconsiderando a solicitação
+HTTP GET do favicon.ico. O número do pacote que contém a mensagem GET é 123.
+13. O número do pacote que contém o código de status e a frase de resposta
+à solicitação HTTP GET é 135.
+14. 200 OK
+15. De acordo com os detalhes de pacote selecionado (da resposta do servidor), 
+foram necessários 4 segmentos TCP contendo a resposta HTTP e o texto da Declaração
+de Direitos: "4 Reassembled TCP Segments".
+
+--------------------------------------------------------------------------------------
+16. Meu navegador enviou 3 mensagens HTTP GET, desconsiderando a solicitação HTTP GET
+do favicon.ico :
+1. http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file4.html
+2. http://gaia.cs.umass.edu/pearson.png
+3. http://kurose.cslash.net/8E_cover_small.jpg
+
+17. O navegador baixou as duas imagens em série, pois 
+a solicitação HTTP GET para a segunda imagem foi enviada após
+a resposta HTTP 200 OK do PNG da primeira imagem.
+
+--------------------------------------------------------------------------------------------------
+18. A resposta do servidor à mensagem inicial HTTP GET do meu navegador foi:
+401 Unauthorized.
+
+19. O novo campo que aparece ao navegador enviar a mensagem HTTP pela segunda vez é 
+Authorization com sub-campos credentials
+que contém o login e senha informado no PDF.
+
+

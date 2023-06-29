@@ -1,0 +1,41 @@
+1. O número do pacote do primeiro segmento UDP encontrado no rastreamento é 1.
+O segmento UDP está transportando dados (172 bytes).
+Existem 4 campos no cabeçalho UDP:
+1-Source Port , 2- Destination Port , 3-Lenght, 4-Checksum
+
+2. 
+Source Port: 2 bytes
+Destination Port : 2 bytes
+Length: 2 bytes
+Checksum: 2 bytes
+
+Total: 8 bytes
+
+3. Length é o comprimento em bytes do segmento UDP que representa a soma do tamanho da carga útil
+(172 bytes) com o tamanho do cabeçalho (8 bytes) totalizando no caso rastreado 180 bytes.
+
+4. O número máximo de bytes que podem ser incluídos em uma carga UDP útil
+é obtido por meio de 2^16-1 bytes (65.535, número máximo que consegue ser armazenado no campo length) 
+tirando 8 bytes (já ocupados pelo cabeçalho UDP) totalizando 65.527 bytes
+
+5. O maior número de porta de origem possível é 2^16-1 que é o valor 65.535 
+(FFFF em hexa-decimal) que corresponde ao valor máximo que consegue ser armazenado
+no campo source port.
+
+6. O número do protocolo para UDP é 17.
+
+7. O número do pacote do primeiro é 12.
+O número do pacote do segundo é 13.
+
+Pacote 1 :
+Source Port : 59452
+Destination Port: 53
+
+Pacote 2:
+Source Port: 53
+Destination Port: 59452
+
+A porta de destino do primeiro pacote é a porta de origem
+do segundo pacote.
+A porta de origem do primeiro pacote é a porta de destino
+do segundo pacote.

@@ -1,0 +1,127 @@
+-> 480   (24.828253s): requisição HTTP para gaia/alice.txt
+
+-> 1016 (32.825992s): requisição HTTP para cs.umass.edu
+
+-> 1733 (49.583615s): hospedeiro tenta se conectar no linksys_ses_24086
+
+-> 2142 (63.059233): hospedeiro desiste de se conectar ao linksys_ses_24806
+e se conecta novamente ao 30 Munroe St
+
+
+File->Print, escolha Selected packet only, escolha Packet summary line, e selecione a
+quantidade mínima de detalhes do pacote que você precisa para responder à pergunta.
+
+-------------------------------2-----------------------------------------------------
+1) 
+Os SSIDs dos dois pontos de acesso que estão emitindo a maioria dos quadros de beacon são:
+SSID = "30 Munroe St"
+SSID = "linksys12"
+
+2)
+O intervalo de beacon para ambos os pontos de acesso está inserido no rastreamento em Beacon Interval
+como 0.12400 segundos
+Beacon Interval: 0.102400 [Seconds]
+
+3) Source address: Cisco-Li_f7:1d:51 (00:16:b6:f7:1d:51)
+
+4) Destination address: Broadcast (ff:ff:ff:ff:ff:ff)
+
+5) BSS Id: Cisco-Li_f7:1d:51 (00:16:b6:f7:1d:51)
+
+
+6)
+Tag: Supported Rates 1(B), 2(B), 5.5(B), 11(B), [Mbit/sec]
+Tag: Extended Supported Rates 6(B), 9, 12(B), 18, 24(B), 36, 48, 54, [Mbit/sec]
+
+
+---------------------------------3-----------------------------------------------------
+
+7) 
+
+Endereços MAC:
+Destination address: Cisco-Li_f4:eb:a8 (00:16:b6:f4:eb:a8) que é o roteador de primeiro salto
+Source address: IntelCor_d1:b6:4f (00:13:02:d1:b6:4f) que é o hospedeiro sem fio
+BSS Id: Cisco-Li_f7:1d:51 (00:16:b6:f7:1d:51)
+
+Endereços IP:
+Source address:  192.168.1.109
+Destination address: 128.119.245.12
+O Endereço de destino corresponde ao servidor gaia.cs.umass.edu
+
+Percebe-se que o endereço MAC de destino corresponde ao roteador de primeiro salto, enquanto o endereço IP de destino
+corresponde ao servidor gaia, portanto nesse quadro SYN, o endereço MAC de destino não corresponde ao endereço IP que está contido
+nele, ou seja, são interfaces distintas.
+
+8)
+Endereços MAC:
+Destination address: 91:2a:b0:49:b6:4f (91:2a:b0:49:b6:4f) que é o hospedeiro sem fio
+Source address: Cisco-Li_f4:eb:a8 (00:16:b6:f4:eb:a8) que corresponde ao roteador de primeiro salto
+BSS Id: Cisco-Li_f7:1d:51 (00:16:b6:f7:1d:51)
+
+Endereços IP:
+Source address : 128.119.245.12
+Destination address: 192.168.1.109
+
+
+O endereço MAC de origem no segmento SYN é diferente do endereço MAC de destino no segmento SYNACK.
+O endereço MAC do remetente não corresponde ao endereço IP do dispositivo que enviou o segmento TCP,
+já que o endereço MAC é do roteador de primeiro salto em relação ao hospedeiro e o endereço IP de quem enviou
+o segmento é do servidor gaia.cs.umass.edu
+
+
+-------------------------------------4----------------------------------------------------------------------
+
+9) 
+A primeira ação é do DHCP release, enviada pelo hospedeiro ao servidor DHCP.
+A segunda ação é que o hospedeiro envia um quadro DEAUTHENTICATION:
+Frame Control Field: 0xc000
+.... ..00 = Version: 0
+.... 00.. = Type: Management frame (0)
+1100 .... = Subtype: 12
+Esperava-se haver uma DESASSOCIATE REQUEST enviado pelo hospedeiro ao AP.
+
+10) 
+Pacotes com mensagens de AUTHENTICATION enviadas pelo hospedeiro ao AP com endereço MAC Cisco_Li_f5:ba:bb=
+1740,1741,1742,1744,1746,1749,1821,1822,1921,1922,1923,1924,2122,2123,2124. 
+
+11) O host deseja que a autenticação seja aberta, informado pela especificação:
+Authentication Algorithm: Open System 
+
+12) Não há resposta de AUTHENTICATION do AP linksys_ses_24086 no rastreamento, isso provavelmente
+ocorre pois o AP está configurado para requisitar uma chave ao associar-se com ele, então
+ele ignora requisições de acesso aberto.
+
+13)
+quadro de AUTHENTICATION do hospedeiro para AP 30 Munroe St:
+(1)63.168087 segundos ; (2)63.169707 segundos
+resposta de AUTHENTICATION do AP para o hospedeiro:
+(1)63.169071 segundos ; (2)63.170692 segundos
+
+14) ASSOCIATION REQUEST do hospedeiro para AP 30 Munroe St:
+63.169910 segundos
+ASSOCIATION RESPONSE correspondente:
+63.192101 segundos
+
+15)
+Hospedeiro:
+Tag: Supported Rates 1(B), 2(B), 5.5(B), 11(B), 6(B), 9, 12(B), 18, [Mbit/sec]
+Tag: Extended Supported Rates 24(B), 36, 48, 54, [Mbit/sec]
+
+AP:
+Tag: Supported Rates 1(B), 2(B), 5.5(B), 11(B), [Mbit/sec]
+Tag: Extended Supported Rates 6(B), 9, 12(B), 18, 24(B), 36, 48, 54, [Mbit/sec]
+
+----------------------------------------5-------------------------------------------
+16)
+Probe Request no t = 63.140106s
+Destination address: Broadcast (ff:ff:ff:ff:ff:ff)
+Source address: IntelCor_d1:b6:4f (00:13:02:d1:b6:4f)
+BSS Id: Broadcast (ff:ff:ff:ff:ff:ff)
+
+Probe Response no t = 63.142451s
+Destination address: IntelCor_d1:b6:4f (00:13:02:d1:b6:4f)
+Source address: Cisco-Li_f7:1d:51 (00:16:b6:f7:1d:51)
+BSS Id: Cisco-Li_f7:1d:51 (00:16:b6:f7:1d:51)
+
+Uma Probe Request é usada quando o hospedeiro tenta encontrar um Ponto de Acesso.
+Uma Probe Response é enviada pelo ponto de acesso para o hospedeiro que enviou a solicitação.

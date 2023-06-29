@@ -1,0 +1,95 @@
+https://www.cics.umass.edu
+TLS requires a cryptographically secure pseudorandom number generator
+   (PRNG).  Care must be taken in designing and seeding PRNGs.  PRNGs
+   based on secure hash operations, most notably SHA-1, are acceptable,
+   but cannot provide more security than the size of the random number
+   generator state.
+
+   To estimate the amount of seed material being produced, add the
+   number of bits of unpredictable information in each seed byte.  For
+   example, keystroke timing values taken from a PC compatible's 18.2 Hz
+   timer provide 1 or 2 secure bits each, even though the total size of
+   the counter value is 16 bits or more.  Seeding a 128-bit PRNG would
+   thus require approximately 100 such timer values.
+
+   [RANDOM] provides guidance on the generation of random values.
+
+
+
+
+
+
+1) O número do pacote que contém o rastreamento SYN inicial é 816
+
+2) A conexão TCP é configurada antes da primeira mensagem TLS ser enviada
+do cliente para o servidor
+
+3) O número do pacote que contém a primeira mensagem TLS Client Hello é
+832
+
+4) Meu cliente está executando a versão 1.2 do TLS, seguindo o que foi declarado
+na mensagem Client Hello
+
+5) São 16 conjuntos de cifras suportados pelo cliente
+Cipher Suites (16 suites)
+
+
+6) Os dois primeiros dígitos hexadecimais no campo de bytes aleatórios da mensagem
+Client Hello é '81' 
+
+7) O campo "random bytes" fornece orientação sobre a geração de valores aleatórios
+que servirão para calcular o segredo mestre, usado para criptografia
+das mensagens subsequentes. Também pode servir para evitar ataques de repetição garantindo que 
+a outra parte com quem você deseja se comunicar está realmente lá interativamente e você 
+não está apenas vendo uma sessão gravada que está sendo reproduzida para você, 
+potencialmente representando outra pessoa.
+
+
+8) O número do pacote que contém a primeira mensagem TLS Server Hello é
+841
+
+9) Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+
+10) A mensagem Server Hello também contém bytes aleatórios. Serve como orientação
+sobre geração de valores aleatórios que serão usados para calcular o segredo mestre.
+O segredo mestre  permite a criptografia dos dados das mensagens subsequentes.
+
+11)
+O número do pacote que contém o certificado de chave pública para o servidor www.cics.umass.edu
+é 848
+
+12)
+Nem todos os certificados retornados são para www.cs.umass.edu.
+Há dois certificados para id-at-commonName=InCommon RSA Server CA,id-at-organizationalUnitName=InCommon,id-at-organizationName=Internet2,id-at-localityName=Ann Arbor,id-at-stateOrProvinceName=MI,id-at-countryName=US
+
+13)id-at-organizationalUnitName=Computer Science,id-at-organizationName=University of Massachusetts Amherst
+
+14) Algorithm Id: 1.2.840.113549.1.1.11 (sha256WithRSAEncryption)
+
+15) '00b3'
+
+16) Não encontrei uma mensagem entre cliente e CA no rastreamento. 
+O certificado é assinado por uma CA em que o cliente já confia (e para a qual conhece a chave pública). 
+Nesse caso, o cliente trata o certificado como válido.
+
+17)O número do pacote que contém o registro TLS Server Hello Done é 848
+
+18) o número do pacote no rastreamento para a mensagem TLS que
+contém as informações de chave pública, Change Cipher Spec e a mensagem
+Encrypted Handshake, sendo enviada do cliente para o servidor é 852
+
+19)O cliente não forneceu seu próprio certificado de chave pública assinado por CA de
+volta ao servidor
+
+20) Está sendo usado o algoritmo de Diffie-Hellman para criptografia de chave simétrica
+
+21) Na mensagem de Server Key Exchange, enviada do servidor para o cliente
+
+22) O número do pacote em seu rastreamento para a primeira mensagem
+criptografada transportando dados da aplicação do cliente para o servidor é 856
+
+23) Provavelmente pacotes de solicitação de get para a página 
+e pacotes de recuperação do conteúdo dela
+
+24) Número do pacote 6295, que é o último pacote de dados da aplicação enviados pelo cliente
+ao servidor

@@ -1,0 +1,62 @@
+1)
+IP do hospedeiro: 192.168.0.112
+IP do destino: 143.89.12.134
+
+2)
+ICMP pertence a camada de rede, portanto a um nível inferior
+do que a camada de transporte que lida com portas.
+Programa ping não usa número de portas porque está em um nível em
+que a informação sobre elas não é importante.
+
+3)
+Type : 8 (Echo (ping) request)
+Code : 0
+
+Possui os campos: Checksum,Identifier, Sequence Number e Data
+
+Checksum: 2 bytes
+Identifier: 2 bytes
+Sequence Number: 2 bytes
+
+4) 
+Type : 0 (Echo (ping) reply)
+Code : 0
+Possui os campos: Checkum, Identifier, Sequence Number e Data
+
+Checksum: 2 bytes
+Identifier: 2 bytes
+Sequence Number: 2 bytes
+
+
+5)
+IP do hospedeiro: 192.168.0.112
+IP do destino: 128.93.162.83
+
+6)
+Não, se fosse enviado pacotes UDP, o número do protocolo
+IP seria 0x11
+
+7)
+O pacote de eco ICMP possui os campos tipo, codigo, checksum, 
+identifier, sequence number e data assim como o pacote de consulta de ping
+do ICMP, ou seja, possuem os mesmos campos em sua essência.
+No meu rastreamento, a única diferença foi que o pacote de eco ICMP incluiu 
+um campo [No response seen].
+
+8) 
+Não são iguais, o pacote de erro ICMP possui mais campos do que o pacote de consulta
+de ping do ICMP.
+Ele contém o protocolo de internet (IP da origem e do destino) e a mensagem do pacote de eco
+original ICMP a que o pacote de erro retornou.
+
+9)
+Os últimos três pacotes ICMP recebidos pelo hospedeiro de origem são
+pacotes do tipo reply (Type 0 e code 0), diferente dos pacotes de erro ICMP
+que eram do tipo time-to-live exceeded (Type 11 e code 0).
+Eles são diferentes pois os pacotes reply chegaram no hospedeiro de destino
+antes do TTL ser expirado.
+
+10) Há uma grande diferença de tempo entre o passo 6 e o passo 8, levando a uma quantidade
+significativa de atraso. Isso ocorreu porque se trata de uma ligação entre lugares
+muito distantes, provavelmente do Brasil(São Paulo) para Estados Unidos(Miami) e depois
+dos Estados Unidos para a França, são ligações que atravessam o oceano.

@@ -1,0 +1,120 @@
+2)
+
+1. Endereço IP de origem: 192.168.0.112
+Número da porta TCP de origem: 60359
+
+2. Endereço IP de gaia : 128.119.245.12
+Número da porta TCP de gaia : 80
+
+
+3)
+
+3. Sequence Number (raw) :2381895974
+
+Flags :0x002 (SYN)
+A flag SYN está setada em 1 e indica que o segmento é do tipo SYN.
+
+Sim. O receptor TCP nesta sessão será capaz de usar Reconhecimentos Seletivos
+TCP Option - SACK permitted
+
+4. Sequence Number (raw): 1676048998
+Flags: 0x012
+A flag SYN e a flag ACK estão setadas em 1 que o segmento é do tipo SYNACK.
+Acknowledgement number (raw) : 2381895975
+Esse valor foi obtido adicionando - se 1 ao número de sequência inicial
+do segmento SYN que veio do computador do cliente.
+
+
+5. Sequence Number (raw) : 2381795975
+Bytes contidos no campo de carga útil do segmento TCP: 728 bytes
+
+6. 
+Primeiro Segmento (contém o HTTP POST) 
+Envio: Pacote nº 32 -> 2.892788s
+Recebeu ACK: Pacote nº 52 -> 3.023165s
+RTT: 3.023165 - 2.893229 = 0.130377s
+
+Segundo Segmento
+Envio: Pacote nº 33 -> 2.893229s
+Recebeu ACK: Pacote nº 53 -> 3.023165s
+RTT: 3.023165 - 2.893229 = 0.129936s
+
+
+Estimated RTT após o recebimento do ACK para o segundo segmento:
+EstimatedRTT = 0,875 * 0,120377 + 0,125 * 0,129936 = 0,105329875 + 0.016242 = 0.121571875
+
+7.
+
+1º segmento = 54 (cabeçalho) + 728 (carga útil) = 782 bytes
+2º segmento = 54 (cabeçalho) + 1460 (carga útil) = 1514 bytes
+3º segmento = 54 (cabeçalho) + 1460 (carga útil) = 1514 bytes
+4º segmento = 54 (cabeçalho) + 1460 (carga útil) = 1514 bytes
+
+8.
+30.720 bytes
+O buffer do receptor vai crescendo de forma constante até atingir um tamanho máximo.
+O remetente não foi limitado pela falta de espaço no buffer do receptor.
+
+9.
+Não há segmentos retransmitidos.
+Isso pode ser verificado com o gráfico Time-Sequence (Stevens).
+Todos os números de sequência dos segmentos TCP são incrementados ao longo do tempo, não
+há um decremento de número de sequência, o que significa que todas as transmissões 
+foram feitas com sucesso.
+
+
+
+10.
+
+		ACK SEQUENCE NUMBER(Relative)       ACK DATA (reconhecido)
+ACK 1		  	 729				 	729
+ACK 2			5109					4380
+ACK 3			8029					2920	
+ACK 4			12409					4380	
+ACK 5			13869					1460
+ACK 6			18249					4380
+ACK 7			21169					2920
+ACK 8			25549					4380
+ACK 9			28469					2920
+ACK 10		29929					1460
+
+Sim. Há casos em que o receptor reconhece vários segmentos recebidos.
+Por exemplo, o pacote nº 53 reconhece dados com 4380 bytes = 1460 *3 bytes
+
+
+
+11) A vazão é de 282,893 Kbytes/s
+Para calcular o rendimento médio da conexão TCP é necessário fazer uma divisão
+entre a quantidade total de dados e a quantidade total de tempo de transmissão.
+A quantidade total de dados é calculada fazendo uma subtração entre o acknowledged
+sequence number do último ACK e o número de sequência do 1º segmento.
+O tempo total de transmissão é calculado fazendo uma subtração entre o instante de tempo
+do último ACK e o instante de tempo do 1º segmento TCP.
+Com isso,
+quantidade total de dados = 153.050 - 1 = 153.049 bytes
+tempo total de transmissão = 3.433800s - 2.892788s = 0.541012s
+
+Fazendo a divisão: 154.049 / 0,541012 = 282,893 bytes/s
+
+4)
+
+12)
+Ao perceber a quantidade de pacotes enviados em frotas
+nos tempos iniciais, percebe-se um aumento
+gradativo do número de segmentos TCP sendo enviados, o que representa
+a fase de início lenta, se o emissor percebe que não há congestionamento,
+ele tende a aumentar a quantidade de segmentos TCP que vão sendo enviados.
+ 
+
+13)
+A cada 0,03s o emissor envia frotas de pacotes 
+em uma quantidade exponencialmente maior que a frota anterior,
+fazendo com que a nova frota contenha aproximadamente o dobro da 
+quantidade de segmentos que havia na frota anterior
+
+14)
+Também é possível perceber que há um aumento gradativo do número de segmentos TCP sendo
+enviados, o que parece representar a fase de início lenta.
+A cada 0,15s o emissor envia uma frota de pacotes em uma quantidade exponencialmente
+maior que a frota anterior, fazendo com que a nova frota contenha aproximadamente o dobro da 
+quantidade de segmentos que havia na frota anterior.

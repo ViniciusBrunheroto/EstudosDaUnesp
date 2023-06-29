@@ -1,0 +1,50 @@
+1) Endereço IP de origem: 192.168.10.11
+Número de porta de origem: 53924
+Endereço IP de destino: 138.76.29.8
+Número de porta de destino: 80
+
+2) Em 0.030672101s
+
+3)
+Endereço IP de origem: 138.76.29.8
+Número de porta de origem: 80
+Endereço IP de destino: 192.168.10.11
+Número de porta de destino: 53924
+
+4)
+Aparece no t = 0.027356291s
+
+5)
+Endereço IP de origem: 10.0.1.254
+Número de porta de origem: 53924
+Endereço IP de destino: 138.76.29.8
+Número de porta de destino: 80
+
+6)
+Endereço IP de origem foi alterado
+
+7)
+A mensagem HTTP GET que foi enviada continua a mesma
+TCP payload: 330 bytes (nat-inside)
+TCP payload: 330 bytes (nat-outside)
+
+8) O campo do datagrama IP que foi alterado é o Checksum,
+isso ocorre por conta do diferente endereço IP que foi inserido no
+lugar do outro.
+
+9)
+Aparece no t = 0.030625966s
+
+10)
+Endereço IP de origem: 138.76.28.8
+Número de porta de origem: 80
+Endereço IP de destino: 10.0.1.254
+Número de porta de destino: 53924
+
+11)
+Endereço IP de origem: 138.76.28.8
+Número de porta de origem: 80
+Endereço IP de destino: 192.168.10.11
+Número de porta de destino: 53924
+
+

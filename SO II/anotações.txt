@@ -1,0 +1,32 @@
+Para gerar executavel(exe):
+
+gcc nome.c -o nome
+
+-------------------------------------------------------------
+Executar:
+./nome
+
+------------------------------------------------------------
+
+Para compilar:
+
+gcc -c nome.c
+
+------------------------------------------------------------
+
+Visualizar saída do programa executado:
+
+echo $?
+
+------------------------------------------------------------
+
+Visualizar bibliotecas associadas:
+
+ldd nome
+
+-------------------------------------------------------------
+Compilar e ligar com threads:
+
+gcc -o thread-create thread-create.c -lpthread
+
+
