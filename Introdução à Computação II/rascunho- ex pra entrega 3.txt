@@ -1,0 +1,13 @@
+while((fscanf(arq,"%s %d %.2f %.2f",&dados[i].nome,&dados[i].num_matricula,
+	&dados[i].p1,&dados[i].p2)!= EOF))
+	{
+	  if (num == dados[i].num_matricula)
+	  {
+	  	printf("\nAluno: %s ",dados[i].nome);
+	  	printf("\nNOTA P1: %.2f",dados[i].p1);
+	  	printf("\nNOTA P2: %.2f",dados[i].p2);
+	  }
+	 
+	 i++;   	
+	    	
+	}

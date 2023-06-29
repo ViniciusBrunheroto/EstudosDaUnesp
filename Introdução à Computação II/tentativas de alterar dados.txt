@@ -1,0 +1,67 @@
+//SUBROTINA 4: ALTERAR NOTA
+void alterar_nota(struct Cadastro *dados, FILE *arq,int tam) // passando apenas o ARQUIVO por parâmetro
+{
+	int i,num,op=0;
+	float nota1,nota2;
+
+	if((arq=fopen("cadastro.txt","w"))==NULL)
+	{
+	   puts("Não é possível abrir o arquivo\n");
+	   exit(1);	
+	}
+	
+	printf("\nDigite o número da matrícula:  ");
+	scanf("%d",&num);
+	
+    
+    printf("\nDigite a nova nota 1:  ");
+    scanf("%f",&nota1);
+    
+    printf("\nDigite a nova nota 2:  ");
+    scanf("%f",&nota2);
+    
+    dados[num-1].p1= nota1;
+    fflush(stdin);
+    dados[num-1].p2= nota2;
+    
+	fclose(arq);
+	
+}
+
+
+
+
+//SUBROTINA 4: ALTERAR NOTA
+void alterar_nota(struct Cadastro *dados, FILE *arq,int tam) // passando apenas o ARQUIVO por parâmetro
+{
+	int i,num,op=0;
+	float nota1,nota2;
+
+	if((arq=fopen("cadastro.txt","w"))==NULL)
+	{
+	   puts("Não é possível abrir o arquivo\n");
+	   exit(1);	
+	}
+	
+	printf("\nDigite o número da matrícula:  ");
+	scanf("%d",&num);
+	
+	sizeof(dados[num].num_matricula);
+	sizeof(dados[num].nome);
+	
+    fseek(arq,(num-1)*sizeof(struct Cadastro)+54,SEEK_SET);
+    
+    printf("Digite a nova nota 1: ");
+    fflush(stdin);
+    scanf("%d",&nota1);
+    
+    printf("Digite a nova nota 2: ");
+    fflush(stdin);
+    scanf("%d",&nota2);
+    
+    dados[num-1].p1=nota1;
+    dados[num-1].p2=nota2;
+    
+    fwrite(dados,sizeof(struct Cadastro),1,arq);
+	fclose(arq);
+}

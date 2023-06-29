@@ -1,0 +1,62 @@
+//SUBROTINA: COPIAR UMA LISTA
+void copiarLista(celula **topo,celula **topo2)
+{
+	
+	celula *aux,*aux2;
+	celula *temp=NULL;
+	
+	 aux=*topo; //percorrer a 1 lista
+	 aux2=*topo2;  //percorrer a 2 lista
+	 
+	 if (*topo == NULL) 
+	{
+		printf("\nNão há nenhum elemento na lista 1! Tente adicioná-los.");
+    }else
+    {
+        if (*topo2 == NULL)
+        {
+        	temp= (celula *)malloc(sizeof(celula));
+        	temp->elemento= aux->elemento;
+        	temp->prox=NULL;
+        	
+        	*topo2=temp;
+        	aux=aux->prox;
+		}
+		
+		while(aux != NULL) //copiar para uma pilha temporária
+		{
+			temp= (celula *)malloc(sizeof(celula));
+			temp->elemento= aux->elemento;
+			temp->prox= *topo2;
+			*topo2=temp;
+			
+			aux=aux->prox;
+			
+		}
+
+    aux=NULL;
+    aux2=NULL;
+    
+    while(*topo2 != NULL)//copiando para a lista 2
+    {
+    	if (aux == NULL)
+    	{
+    		aux= *topo2;
+    		*topo2= (*topo2)->prox;
+    		aux->prox=NULL;
+		}else
+		{
+			aux2= *topo2;
+			*topo2=(*topo2)->prox;
+			aux2->prox= aux;
+			aux = aux2;
+	    }
+	    
+    }
+    
+    *topo2= aux;
+			
+			
+    }
+    	
+}
